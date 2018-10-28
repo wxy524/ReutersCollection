@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="DEBUG" monitorInterval="60">
+
+    <Properties>
+        <Property name="LOG_PATH">logs/</Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="ReutersCollectionServices" target="SYSTEM_OUT" follow="true">
+        </Console>
+        <RollingFile name="ReutersCollectionServices" fileName="${LOG_PATH}/ReutersCollectionServices.log"
+                     filePattern="${LOG_PATH}/ReutersCollectionServices-%i.log">
+            <Policies>
+                <SizeBasedTriggeringPolicy size="100 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Root level="DEBUG">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="ReutersCollectionServices"/>
+        </Root>
+    </Loggers>
+
+</Configuration>
